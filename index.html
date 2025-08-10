@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maze Race Online</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="mode-menu">
+            <h1>Maze Race</h1>
+            <button class="menu-button" data-mode="1P">One Player vs Bot</button>
+            <button class="menu-button" data-mode="2P">Two Player Race</button>
+        </div>
+        
+        <div id="size-menu" style="display: none;">
+            <h1>Select Maze Size</h1>
+            <button class="menu-button" data-size="Small">Small</button>
+            <button class="menu-button" data-size="Medium">Medium</button>
+            <button class="menu-button" data-size="Large">Large</button>
+            
+            <div id="bot-speed-control" style="display: none;">
+                <label for="bot-speed-slider">Bot Speed</label>
+                <div class="slider-container">
+                    <span>Fast</span>
+                    <input type="range" id="bot-speed-slider" min="250" max="2000" value="1000" step="50">
+                    <span>Slow</span>
+                </div>
+                <span id="bot-speed-value">1.00 s / move</span>
+            </div>
+        </div>
+
+        <div id="ui-overlay"></div>
+
+        <canvas id="maze-canvas" style="display: none;"></canvas>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
