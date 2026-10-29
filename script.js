@@ -139,8 +139,8 @@ function moveBot() {
             changeState('GAME_OVER');
         }
     }
-    animationCounter += 1;
-    if(animationCounter > 10) {
+    animationCounter += botSpeed / 1000;
+    if(animationCounter > 3) {
         updateMessage("");
     }
 }
