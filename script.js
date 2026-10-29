@@ -28,6 +28,7 @@ let animationFrameId, botMoveInterval = null;
 let botPathMap = null;
 let botSpeed = 1000; // default speed
 let currentSize = null
+let animationCounter = 0;
 
 class Cell {
     constructor(x, y) { this.x = x; this.y = y; this.isPassage = false; this.walls = { top: true, right: true, bottom: true, left: true }; }
@@ -138,6 +139,10 @@ function moveBot() {
             changeState('GAME_OVER');
         }
     }
+    animationCounter += 1;
+    if(animationCounter > 10) {
+        updateMessage("");
+    }
 }
 
 function draw() {
@@ -180,6 +185,7 @@ function changeState(newState) {
     if (botMoveInterval) clearInterval(botMoveInterval);
 
     if (gameState === 'PICKING_START') {
+        animationCounter = 0;
         updateMessage("Click a cell to set the FINISH line");
     } else if (gameState === 'PLAYING_1P') {
         updateMessage("Race the Bot! (WASD)");
